@@ -35,7 +35,7 @@
 
 
 //MAP------------------ain(){
-    void main(){
+/*     void main(){
 
     Map persona = { //podemos limitar el tipo de datos ej Map<String, String>
       'nombre':'Monica',
@@ -47,4 +47,4 @@
     };
     persona.addAll({3:'Juan'});
     print(persona);
-  }
+  } */
