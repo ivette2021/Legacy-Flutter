@@ -48,3 +48,25 @@
     persona.addAll({3:'Juan'});
     print(persona);
   } */
+
+  void main(){
+final nombre = 'ivette';
+saludar(nombre);
+//saludar(nombre, 'greeteing'); //con esto omitimos el mensaje y decimo greeting ivatte en vez de como esta abajo que diria hola ivette
+saludar2(nombre:nombre);
+saludar3(nombre:nombre, mensaje:'aqui va el otro parametro requerido');
+  }
+
+  void saludar(String name, [String mensaje = 'hola']){ //argumento posicional obligatorio, sin le agregas los corchetes va a ser argumento opcional tambien
+    print('$mensaje $name, ¿que tal la vida?');
+  }
+
+    void saludar2({String nombre = 'No name', String? mensaje}){ //argumento posicional obligatorio, sin le agregas los corchetes va a ser argumento opcional tambien
+    print('$mensaje $nombre'); //te imprimira null ivette debido a que colocamos que el mensaje podria o no ser nulo
+  }
+
+      void saludar3({
+        required nombre, 
+        required mensaje}){ //siempre que se quiera usar esta funcion se necesita requerir obnligatoriamente los datos
+    print('$mensaje $nombre'); 
+  }
