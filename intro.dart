@@ -49,7 +49,9 @@
     print(persona);
   } */
 
-  void main(){
+
+//funciones dart
+/*   void main(){
 final nombre = 'ivette';
 saludar(nombre);
 //saludar(nombre, 'greeteing'); //con esto omitimos el mensaje y decimo greeting ivatte en vez de como esta abajo que diria hola ivette
@@ -70,3 +72,38 @@ saludar3(nombre:nombre, mensaje:'aqui va el otro parametro requerido');
         required mensaje}){ // siempre que se quiera usar esta funcion se necesita requerir obnligatoriamente los datos
     print('$mensaje $nombre'); 
   }
+ */
+
+
+//clases en dart
+void main(){
+  
+  final wolverine = new Heroe(nombre:'Logan', poder: 'Regeneración');
+  
+//   wolverine.nombre = 'Logan';
+//   wolverine.poder = 'Regeneración';
+  
+  print( wolverine );
+  
+}
+
+class Heroe {
+  
+  String nombre;
+  String poder;
+  
+  Heroe({ 
+    required this.nombre, 
+    required this.poder 
+  });
+  
+//   Heroe( String pNombre ) {
+//     this.nombre = pNombre;
+//   }
+  
+  
+  String toString() {
+    return 'Heroe: nombre: ${this.nombre}, poder: ${ this.poder }'; //transforme en string una instancia de mi clase
+  }
+}
+  
