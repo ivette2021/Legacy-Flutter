@@ -67,6 +67,6 @@ saludar3(nombre:nombre, mensaje:'aqui va el otro parametro requerido');
 
       void saludar3({
         required nombre, 
-        required mensaje}){ //siempre que se quiera usar esta funcion se necesita requerir obnligatoriamente los datos
+        required mensaje}){ // siempre que se quiera usar esta funcion se necesita requerir obnligatoriamente los datos
     print('$mensaje $nombre'); 
   }
