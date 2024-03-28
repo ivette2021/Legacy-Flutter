@@ -1,4 +1,3 @@
-
 //String----------------------
 /* void main(){
   print('Hola Mundo');
@@ -9,7 +8,6 @@
   nombre = 'Ross';
   print('$nombre $apellido');//inclui un espacio para que salga en la impresion
 } */
-
 
 //Boleanos y condiciones ----------------------------
 /* void main(){
@@ -22,7 +20,6 @@
   }
 } */
 
-
 //Lista------------------
 /* void main(){
   List numeros =[1,2,3,4,5,6,7,8,9,0]; //si reemplazas List por dynamic hace mas estricto el tipo de dato que soporta la lista
@@ -32,7 +29,6 @@
   final masNumeros = List.generate(100, (int index) => 10);//argumento posicional para crear los 100 elementos de mi arreglo de numeros 10
 
   } */
-
 
 //MAP------------------ain(){
 /*     void main(){
@@ -48,7 +44,6 @@
     persona.addAll({3:'Juan'});
     print(persona);
   } */
-
 
 //funciones dart
 /*   void main(){
@@ -74,36 +69,41 @@ saludar3(nombre:nombre, mensaje:'aqui va el otro parametro requerido');
   }
  */
 
-
 //clases en dart
-void main(){
-  
-  final wolverine = new Heroe(nombre:'Logan', poder: 'Regeneración');
-  
+void main() {
+  final rawJson = {'nombre': ' Tony Stark', 'poder': 'Dinero'};
+
+  //final wolverine = new Heroe(nombre: 'Logan', poder: 'Regeneración');
+
 //   wolverine.nombre = 'Logan';
 //   wolverine.poder = 'Regeneración';
-  
-  print( wolverine );
-  
+
+  final ironman = Heroe.fromJason(rawJson);
+  print(ironman);
+
+  // print(wolverine);
 }
 
 class Heroe {
-  
-  String nombre;
-  String poder;
-  
-  Heroe({ 
-    required this.nombre, 
-    required this.poder 
-  });
-  
+  String?
+      nombre; //cuando se cree una instancia no necesariamente va a tener un poder y un nombre eso significa el signo de interrogacion
+  String? poder;
+
+  Heroe({required this.nombre, required this.poder});
+
 //   Heroe( String pNombre ) {
 //     this.nombre = pNombre;
 //   }
-  
-  
+
+  Heroe.fromJason(Map<String, String> json) {
+    //contructor from json
+    this.nombre = json['nombre']!;
+    // this.poder = json[poder]!;// cuidado con usar signo de exclamancion ya que estas dando a entender que si o si va el dato
+    this.poder = json[poder] ??
+        'No tiene poder'; // muchas veces se usa doble singo de interrogacion en caso de no estar el valor
+  }
+
   String toString() {
-    return 'Heroe: nombre: ${this.nombre}, poder: ${ this.poder }'; //transforme en string una instancia de mi clase
+    return 'Heroe: nombre: ${this.nombre}, poder: ${this.poder}'; //transforme en string una instancia de mi clase
   }
 }
-  
