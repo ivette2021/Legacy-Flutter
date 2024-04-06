@@ -223,16 +223,42 @@ saludar3(nombre:nombre, mensaje:'aqui va el otro parametro requerido');
 // //   batman.volar();
 // }
 
-//Future
-void main() {
-  //future es una tarea asincrona que se hace a desotiempo es como las corrutinas
+// //Future
+// void main() {
+//   //future es una tarea asincrona que se hace a desotiempo es como las corrutinas
+//   print('Antes de la petición');
+
+//   httpGet('https://api.nasa.com/aliens').then((data) {
+//     print(data.toUpperCase());
+//   });
+
+//   print('Fin del programa');
+// }
+
+// Future<String> httpGet(String url) {
+//   return Future.delayed(Duration(seconds: 3), () => 'Hola Mundo - 3 segundos');
+// }
+
+// Async - await
+void main() async {
+  //async retorna algo de tipo future no es un string ,  Tambien se tranforma la funcion en async para poder usar await
   print('Antes de la petición');
 
-  httpGet('https://api.nasa.com/aliens').then((data) {
-    print(data.toUpperCase());
-  });
+  final data = await httpGet(
+      'https://api.nasa.com/aliens'); // parecido a suspend fun de kotlin
+
+  print(data);
+
+//   final nombre = await getNombre( '10' );
+//   print( nombre );
+//    getNombre( '10' ).then( print );
 
   print('Fin del programa');
+}
+
+Future<String> getNombre(String id) async {
+  //por eso se cambio por Future la palabra orioginalmente String
+  return '$id - Fernando';
 }
 
 Future<String> httpGet(String url) {
