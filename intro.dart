@@ -142,34 +142,83 @@ saludar3(nombre:nombre, mensaje:'aqui va el otro parametro requerido');
 //   }
 // }
 
+// void main() {
+//   //final perro = new Animal();//clase abstracta no pueden ser instanciadas
+//   final perro = new Perro();
+//   final gato = new Gato();
+
+//   sonidoAnimal( perro );
+//   sonidoAnimal( gato );
+
+// }
+
+// void sonidoAnimal( Animal animal ) {
+//   animal.emitirSonido();
+// }
+
+// abstract class Animal {
+
+//   int? patas;
+//   void emitirSonido();
+
+// }
+
+// class Perro implements Animal {
+
+//   int? patas;
+
+//   void emitirSonido() => print('Guauuuuuuuu');
+
+// }
+
+// class Gato implements Animal {
+
+//   int? patas;
+//   int? cola;
+
+//   void emitirSonido() => print('Miauuuuuuuu');
+// }
+
+abstract class Animal {}
+
+abstract class Mamifero extends Animal {}
+
+abstract class Ave extends Animal {}
+
+abstract class Pez extends Animal {}
+
+abstract class Volador {
+  void volar() => print('estoy volando');
+}
+
+abstract class Caminante {
+  void caminar() => print('estoy caminando');
+}
+
+abstract class Nadador {
+  void nadar() => print('estoy nadando');
+}
+
+class Delfin extends Mamifero
+    with Nadador {} //con la palabra with identificamos un mixing
+
+class Murcielago extends Mamifero with Caminante, Volador {}
+
+class Gato extends Mamifero with Caminante {}
+
+class Paloma extends Ave with Caminante, Volador {}
+
+class Pato extends Ave with Caminante, Volador, Nadador {}
+
+class Tiburon extends Pez with Nadador {}
+
+class PezVolador extends Pez with Nadador, Volador {}
+
 void main() {
-  //final perro = new Animal();//clase abstracta no pueden ser instanciadas
+//   final flipper = new Delfin();
+//   flipper.nadar();
 
-  final perro = new Perro();
-  final gato = new Gato();
-
-  sonidoAnimal(perro);
-  sonidoAnimal(gato);
-}
-
-void sonidoAnimal(Animal animal) {
-  animal.emitirSonido();
-}
-
-abstract class Animal {
-  int? patas;
-  void emitirSonido();
-}
-
-class Perro implements Animal {
-  int? patas;
-
-  void emitirSonido() => print('Guauuuuuuuu');
-}
-
-class Gato implements Animal {
-  int? patas;
-  int? cola;
-
-  void emitirSonido() => print('Miauuuuuuuu');
+//   final batman = new Murcielago();
+//   batman.caminar();
+//   batman.volar();
 }
