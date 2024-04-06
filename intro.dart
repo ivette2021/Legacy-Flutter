@@ -70,40 +70,74 @@ saludar3(nombre:nombre, mensaje:'aqui va el otro parametro requerido');
  */
 
 //clases en dart
-void main() {
-  final rawJson = {'nombre': ' Tony Stark', 'poder': 'Dinero'};
+// void main() {
+//   final rawJson = {'nombre': ' Tony Stark', 'poder': 'Dinero'};
 
-  //final wolverine = new Heroe(nombre: 'Logan', poder: 'Regeneración');
+//   //final wolverine = new Heroe(nombre: 'Logan', poder: 'Regeneración');
 
-//   wolverine.nombre = 'Logan';
-//   wolverine.poder = 'Regeneración';
+// //   wolverine.nombre = 'Logan';
+// //   wolverine.poder = 'Regeneración';
 
-  final ironman = Heroe.fromJason(rawJson);
-  print(ironman);
+//   final ironman = Heroe.fromJason(rawJson);
+//   print(ironman);
 
-  // print(wolverine);
-}
+//   // print(wolverine);
+// }
 
-class Heroe {
-  String?
-      nombre; //cuando se cree una instancia no necesariamente va a tener un poder y un nombre eso significa el signo de interrogacion
-  String? poder;
+// class Heroe {
+//   String?
+//       nombre; //cuando se cree una instancia no necesariamente va a tener un poder y un nombre eso significa el signo de interrogacion
+//   String? poder;
 
-  Heroe({required this.nombre, required this.poder});
+//   Heroe({required this.nombre, required this.poder});
 
-//   Heroe( String pNombre ) {
-//     this.nombre = pNombre;
+// //   Heroe( String pNombre ) {
+// //     this.nombre = pNombre;
+// //   }
+
+//   Heroe.fromJason(Map<String, String> json) {
+//     //contructor from json
+//     this.nombre = json['nombre']!;
+//     // this.poder = json[poder]!;// cuidado con usar signo de exclamancion ya que estas dando a entender que si o si va el dato
+//     this.poder = json[poder] ??
+//         'No tiene poder'; // muchas veces se usa doble singo de interrogacion en caso de no estar el valor
 //   }
 
-  Heroe.fromJason(Map<String, String> json) {
-    //contructor from json
-    this.nombre = json['nombre']!;
-    // this.poder = json[poder]!;// cuidado con usar signo de exclamancion ya que estas dando a entender que si o si va el dato
-    this.poder = json[poder] ??
-        'No tiene poder'; // muchas veces se usa doble singo de interrogacion en caso de no estar el valor
+//   String toString() {
+//     return 'Heroe: nombre: ${this.nombre}, poder: ${this.poder}'; //transforme en string una instancia de mi clase
+//   }
+// }
+
+import 'dart:math' as math;
+
+void main() {
+  final cuadrado = new Cuadrado(2);
+
+  cuadrado.area = 100;
+
+  print('area: ${cuadrado.calculaArea()}');
+
+  print('lado: ${cuadrado.lado}');
+  print('area get: ${cuadrado.area}');
+}
+
+//Getter and Setters
+class Cuadrado {
+  //constructor
+
+  double lado; // lado * lado
+
+  double get area {
+    return this.lado * this.lado;
   }
 
-  String toString() {
-    return 'Heroe: nombre: ${this.nombre}, poder: ${this.poder}'; //transforme en string una instancia de mi clase
+  set area(double valor) {
+    this.lado = math.sqrt(valor);
+  }
+
+  Cuadrado(double lado) : this.lado = lado;
+
+  double calculaArea() {
+    return this.lado * this.lado;
   }
 }
