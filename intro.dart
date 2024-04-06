@@ -108,36 +108,68 @@ saludar3(nombre:nombre, mensaje:'aqui va el otro parametro requerido');
 //   }
 // }
 
-import 'dart:math' as math;
+// import 'dart:math' as math;
+
+// void main() {
+//   final cuadrado = new Cuadrado(2);
+
+//   cuadrado.area = 100;
+
+//   print('area: ${cuadrado.calculaArea()}');
+
+//   print('lado: ${cuadrado.lado}');
+//   print('area get: ${cuadrado.area}');
+// }
+
+// //Getter and Setters
+// class Cuadrado {
+//   //constructor
+
+//   double lado; // lado * lado
+
+//   double get area {
+//     return this.lado * this.lado;
+//   }
+
+//   set area(double valor) {
+//     this.lado = math.sqrt(valor);
+//   }
+
+//   Cuadrado(double lado) : this.lado = lado;
+
+//   double calculaArea() {
+//     return this.lado * this.lado;
+//   }
+// }
 
 void main() {
-  final cuadrado = new Cuadrado(2);
+  //final perro = new Animal();//clase abstracta no pueden ser instanciadas
 
-  cuadrado.area = 100;
+  final perro = new Perro();
+  final gato = new Gato();
 
-  print('area: ${cuadrado.calculaArea()}');
-
-  print('lado: ${cuadrado.lado}');
-  print('area get: ${cuadrado.area}');
+  sonidoAnimal(perro);
+  sonidoAnimal(gato);
 }
 
-//Getter and Setters
-class Cuadrado {
-  //constructor
+void sonidoAnimal(Animal animal) {
+  animal.emitirSonido();
+}
 
-  double lado; // lado * lado
+abstract class Animal {
+  int? patas;
+  void emitirSonido();
+}
 
-  double get area {
-    return this.lado * this.lado;
-  }
+class Perro implements Animal {
+  int? patas;
 
-  set area(double valor) {
-    this.lado = math.sqrt(valor);
-  }
+  void emitirSonido() => print('Guauuuuuuuu');
+}
 
-  Cuadrado(double lado) : this.lado = lado;
+class Gato implements Animal {
+  int? patas;
+  int? cola;
 
-  double calculaArea() {
-    return this.lado * this.lado;
-  }
+  void emitirSonido() => print('Miauuuuuuuu');
 }
